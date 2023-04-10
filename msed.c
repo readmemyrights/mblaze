@@ -161,8 +161,8 @@ sed(char *file)
 					if (!sep) {
 						fprintf(stderr, "msed: unterminated a command\n");
 						exit(1);
-					}
-						e = strchr(e, sep);
+						}
+					e = strchr(e, sep);
 					if (*e == sep)
 						e++;
 					if (!(*e == ' ' || *e == ';' || *e == '\n' || !*e)) {
