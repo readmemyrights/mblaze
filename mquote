@@ -2,7 +2,7 @@
 # mquote MSG - format MSG as a quotation
 
 date=$(mhdr -h date "$1")
-: "${from:=$(mhdr -d -h x-original-from "$1")}"
+from=$(mhdr -d -h x-original-from "$1")
 : "${from:=$(mhdr -d -h from "$1")}"
 : "${from:=Someone}"
 
