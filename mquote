@@ -1,11 +1,12 @@
 #!/bin/sh
 # mquote MSG - format MSG as a quotation
 
+date=$(mhdr -h date "$1")
 : "${from:=$(mhdr -d -h x-original-from "$1")}"
 : "${from:=$(mhdr -d -h from "$1")}"
 : "${from:=Someone}"
 
-printf '%s wrote:\n' "$from"
+printf 'On %s %s wrote:\n' "$date" "$from"
 { mshow -R "$1" || mshow -h '' -N "$1"; } |
 	sed -n '/^-- $/,$!p'   |                   # strip signature
 	sed -e :a -e '/^\n*$/{$d;N;ba' -e '}' |    # strip empty lines
