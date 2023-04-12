@@ -1,9 +1,9 @@
 #!/bin/sh
 # mquote MSG - format MSG as a quotation
 
-: ${from:=$(mhdr -d -h x-original-from "$1")}
-: ${from:=$(mhdr -d -h from "$1")}
-: ${from:=Someone}
+: "${from:=$(mhdr -d -h x-original-from "$1")}"
+: "${from:=$(mhdr -d -h from "$1")}"
+: "${from:=Someone}"
 
 printf '%s wrote:\n' "$from"
 { mshow -R "$1" || mshow -h '' -N "$1"; } |
