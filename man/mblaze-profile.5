@@ -49,11 +49,25 @@ The fully qualified domain name used for
 .Li Message\&-Id\&:
 generation in
 .Xr mgenmid 1 .
+.It Li Drafts\&:
+If set
+.Xr mcom 1
+will keep drafts in this maildir.
+For backwards compatibility
+.Xr mcom 1
+will use the value of
+.Li outbox\&:
+if it isn't set.
 .It Li Outbox\&:
 If set,
 .Xr mcom 1
-will create draft messages in this maildir,
-and save messages there after sending.
+will save messages in this maildir after sending.
+For backwards compatibility
+.Xr mcom 1
+will keep draft messages in it
+if
+.Li drafts\&:
+is unset.
 .It Li Reply-From\&:
 A comma-separated list of display name and mail address pairs, formatted like this:
 .Dl Li Primary Name <myname1@domain1>, Name v.2 <myname2@domain2>, \[dq]Name, My Third\[dq] <myname3@domain3>, ...
